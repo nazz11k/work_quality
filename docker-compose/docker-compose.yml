@@ -1,0 +1,19 @@
+version: '3.8'
+
+name: 'work-quality'
+
+services:
+  postgres:
+    image: postgres:13.3
+    environment:
+      - POSTGRES_DB=work_quality
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=pass
+    ports:
+      - '5432:5432'
+    volumes:
+      - postgres-data:/postgresql/data
+
+
+volumes:
+  postgres-data:

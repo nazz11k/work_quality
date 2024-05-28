@@ -1,0 +1,30 @@
+from django.urls import path
+from .views import *
+
+urlpatterns = [
+    path('employees/', EmployeeViewSet.as_view(), name='employees'),
+    path('employees/<str:telegram_id>/', EmployeeDetailViewSet.as_view(), name='employee'),
+    path('clients/', ClientViewSet.as_view(), name='clients'),
+    path('clients/<str:telegram_id>/', ClientDetailViewSet.as_view(), name='client'),
+    path('first_client_checks/', FirstClientCheckViewSet.as_view(), name='first_client_checks'),
+    path('customer_loyalty_indices/', CustomerLoyaltyIndexViewSet.as_view(), name='customer_loyalty_indices'),
+    path('customer_shop_feedbacks/', CustomerShopFeedbackViewSet.as_view(), name='customer_shop_feedbacks'),
+    path('product_feedbacks/', ProductFeedbackViewSet.as_view(), name='product_feedbacks'),
+    path('refund_feedbacks/', RefundFeedbackViewSet.as_view(), name='refund_feedbacks'),
+    path('repair_feedbacks/', RepairFeedbackViewSet.as_view(), name='repair_feedbacks'),
+    path('services/', ServiceViewSet.as_view(), name='services'),
+    path('services/<str:id>/', ServiceDetailViewSet.as_view(), name='service'),
+    path('cities/', CityViewSet.as_view(), name='cities'),
+    path('cities/<str:id>', CityDetailViewSetById.as_view(), name='city'),
+    path('cities_name/<str:name>', CityDetailViewSetByName.as_view(), name='city_name'),
+    path('regions/', RegionViewSet.as_view(), name='regions'),
+    path('regions/<str:id>', RegionDetailViewSetById.as_view(), name='region'),
+    path('regions_name/<str:name>', RegionDetailViewSetByName.as_view(), name='region_name'),
+    path('schedule/', ScheduleViewSet.as_view(), name='schedule'),
+    path('regions_with_workplaces/', RegionsWithWorkplacesViewSet.as_view(), name='regions_with_workplaces'),
+    path('cities_with_workplaces/', CitiesWithWorkplacesViewSet.as_view(), name='cities_with_workplaces'),
+    path('workplaces/', WorkplaceViewSet.as_view(), name='workplaces'),
+    path('nomenclature/', NomenclatureViewSet.as_view(), name='nomenclature'),
+    path('nomenclature/<str:id>', NomenclatureDetailViewSet.as_view(), name='nomenclature_detail'),
+    path('monthly_polls/', MonthlyPollCreateViewSet.as_view(), name='monthly_polls'),
+]
